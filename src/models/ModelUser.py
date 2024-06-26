@@ -1,18 +1,24 @@
 from .entities.User import User
 
+''' Lee de la base de datos el user y el password y los compara con 
+        los digitados en el formulario y devuelve el usuario y el
+        password si coinciden
+    '''
+
 class ModelUser():
     
-    def login(self,db,user):
+    @classmethod
+    def login(self, db, user):
         try:
-            cursor=db.conexion.cursor()
-            sql="""SELECT id, username, password, fullname FROM user 
+            cursor = db.connection.cursor()
+            sql = """SELECT id, username, password, fullname FROM user 
                     WHERE username = '{}'""".format(user.username)
             cursor.execute(sql)
-            row=cursor.fetchone()
+            row = cursor.fetchone()
             if row != None:
-                user=User(row[0], row[1], User.check_password(row[2], user.password), row[3])
+                user = User(row[0], row[1], User.check_password(row[2], user.password), row[3])
                 return user
             else:
                 return None
         except Exception as ex:
-            raise Exception(ex) 
+            raise Exception(ex)
