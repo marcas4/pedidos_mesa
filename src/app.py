@@ -14,7 +14,11 @@ from models.entities.User import User
 app = Flask(__name__)
 
 db = MySQL(app)
+login_manager_app=LoginManager(app)
 
+@login_manager_app.user_loader
+def load_user(id):
+    return ModelUser.get_by_id(db, id)
 
 @app.route('/')
 def index():
@@ -30,6 +34,7 @@ def login():
         logged_user = ModelUser.login(db, user)
         if logged_user != None:
             if logged_user.password:
+                login_user(logged_user)
                 return redirect(url_for('home'))
             else:
                 flash("Invalid Username or password...")
