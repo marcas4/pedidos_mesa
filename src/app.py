@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 db = MySQL(app)
 
+
 @app.route('/')
 def index():
     return redirect(url_for('login'))
@@ -31,10 +32,10 @@ def login():
             if logged_user.password:
                 return redirect(url_for('home'))
             else:
-                flash("Invalid password...")
+                flash("Invalid Username or password...")
                 return render_template('auth/login.html')
         else:
-            flash("User not found...")
+            flash("Username or password not found...")
             return render_template('auth/login.html')
     else:
         return render_template('auth/login.html')
