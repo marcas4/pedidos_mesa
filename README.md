@@ -7,6 +7,7 @@ Este es el servicio de autenticación de un software para hacer los pedidos de l
 #### Funcionamiento
 #### Modelo de datos
 #### Tecnologías
+#### Modo de uso
 #### Elaborado por
 
 
@@ -25,6 +26,14 @@ Debe ingresar con el usuario y contraseña que se encuentran guardados en una ba
 - Python 3
 - Framework flask
 
+### Modo de uso
+En la tabla flask_login debe estar guardado el username y el password que posteriormente la herramienta va a ir a comparar con el que digita el o la usuaria
+
+![login](login.png?raw=true)
+
+Si es correcto tanto el login como el password lo dirigirá a una nueva ventana que contiene el mensaje 'Bienvenid@ "Escribe el nombre de la persona logueada" '
+
+Si es incorrecto entonces saldrá un mensaje donde dirá "Invalid Username or password..."
 
 ### Elaborado por:
 
