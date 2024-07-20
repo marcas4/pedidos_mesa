@@ -18,7 +18,7 @@ Debe ingresar con el usuario y contraseña que se encuentran guardados en una ba
 
 ### Modelo de datos
 
-![Modelo de datos](images/modeloDatos.png?raw=true)
+![Modelo de datos](modeloDatos.png?raw=true)
 
 ### Tecnologías
 
